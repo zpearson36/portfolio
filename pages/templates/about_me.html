@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About Me{% endblock %}
+{% block content %}
+<body style="background-color:#c9cfcc">
+    <div class="container">
+        <div class="row m-5 border border-5 rounded">
+            <div class="col-sm-4 py-2" style="background:#c9c9c9">
+    	        <img class="rounded mx-auto d-block" width="300"src="{% static 'me.jpg' %}" alt="Me!">
+            </div>
+            <div class="col-sm-8 p-5" style="background:#dfdfdf">
+                <h1>About Me</h1>
+                <p>
+          	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio erat,
+          	gravida eget diam quis, sagittis vehicula nibh. Lorem ipsum dolor sit amet,
+          	consectetur adipiscing elit. Suspendisse luctus viverra elit at rutrum. Pellentesque
+          	ultrices lobortis magna sed lobortis. Nam ipsum quam, posuere at sem lacinia,
+          	bibendum sagittis justo. Quisque et lorem id nisl tincidunt accumsan.
+          	Cras a malesuada arcu. Fusce faucibus facilisis nulla, vitae commodo metus
+          	elementum quis. Cras fringilla nunc eu vehicula volutpat. Nullam eu vehicula purus.
+          	Praesent vitae purus at orci tincidunt consequat.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
