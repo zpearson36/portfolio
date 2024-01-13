@@ -3,6 +3,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-        path("", views.index, name="index"),
-        path("about_me", views.about_me, name="about_me"),
+        path("", views.about_me, name="index"),
+        path("selected_works", views.selected_works, name="selected_works"),
+        path("web_dev", views.web_dev, name="web_dev"),
+        path("open_source", views.open_source, name="open_source"),
+        path("game_dev", views.game_dev, name="game_dev"),
         ]
