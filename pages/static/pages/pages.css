@@ -12,6 +12,14 @@
     text-decoration: none;
 }
 
+.fa-itch-io {
+    color:black;
+}
+
+.fa-itch-io:hover {
+    color:grey;
+}
+
 .fa-brands:hover {
 	filter: brightness(.6);
 }
