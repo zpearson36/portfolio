@@ -3,3 +3,6 @@ whitenoise
 gunicorn
 dj_database_url
 Pillow
+
+psycopg[c]; sys_platform == "linux"
+psycopg[binary]; sys_platform != "linux"
