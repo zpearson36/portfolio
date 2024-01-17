@@ -1,3 +1,4 @@
+{% load pages_context_processors %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand ps-2" href="{% url 'index' %}">About Me</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,9 +15,11 @@
           Projects &#9776;
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	    <a class="dropdown-item" href="{% url 'web_dev' %}">WebDev</a>
-	    <a class="dropdown-item" href="{% url 'open_source' %}">Open Source Contributions</a>
-	    <a class="dropdown-item" href="{% url 'game_dev' %}">Personal Projects</a>
+            {% get_dropdown_projects as projects %}
+            {% for project in projects %}
+	    <a class="dropdown-item" href="#">{{ project.name }}</a>
+	    {% endfor %}
+	    <a class="dropdown-item" href="{% url 'projects' %}">More...</a>
         </div>
       </li>
     </ul>

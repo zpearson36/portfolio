@@ -8,5 +8,5 @@ urlpatterns = [
         path("web_dev", views.web_dev, name="web_dev"),
         path("open_source", views.open_source, name="open_source"),
         path("game_dev", views.game_dev, name="game_dev"),
-        path("projects", views.projects, name="projects"),
+        path("projects", views.Projects.as_view(), name="projects"),
         ]
