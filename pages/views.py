@@ -2,11 +2,16 @@ from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import TemplateView
 
-from .models import Project
+from .models import Project, MyInfo
 
-def about_me(request):
-    template = loader.get_template("about_me.html")
-    return HttpResponse(template.render())
+class AboutMe(TemplateView):
+    template_name = "about_me.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['my_info'] = MyInfo.objects.all()[0]
+
+        return context
 
 def selected_works(request):
     template = loader.get_template("landing_page.html")

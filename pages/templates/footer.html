@@ -1,15 +1,17 @@
+{% load pages_context_processors %}
 <div class="container mt-auto">
+	{% get_my_info as my_info %}
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
           <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
           </a>
-          <span class="mb-3 mb-md-0 text-muted">Portfolio</span>
+	  <a href="mailto: {{ my_info.email }}" class="nav-link"><i class="fa-solid fa-envelope"></i><span class="mb-3 mb-md-0 text-muted"> {{ my_info.first_name }} {{ my_info.last_name }}</span></a>
         </div>
         <ul class="nav col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-          <li class="ms-3"><a class="fa-brands fa-linkedin fa-2xl" href="#"></a></li>
-          <li class="ms-3"><a class="fa-brands fa-github fa-2xl" href="#"></a></li>
-          <li class="ms-3"><a class="fa-brands fa-itch-io fa-2xl" href="#"></a></li>
+		<li class="ms-3"><a class="fa-brands fa-linkedin fa-2xl" href="{{ my_info.linked_in }}"></a></li>
+          <li class="ms-3"><a class="fa-brands fa-github fa-2xl" href="{{ my_info.github }}"></a></li>
+          <li class="ms-3"><a class="fa-brands fa-itch-io fa-2xl" href="{{ my_info.itch_io }}"></a></li>
         </ul>
 	<ul class="nav col-md-4 justify-content-end">
 		<li class="nav-item"><a href="{% url 'index' %}" class="nav-link px-2 text-muted">About Me</a></li>
