@@ -44,7 +44,6 @@ else:
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     "django.contrib.admin",
@@ -52,7 +51,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'pages',
 ]
 
@@ -154,13 +155,19 @@ STORAGES = {
     # Enable WhiteNoise's GZip and Brotli compression of static assets:
     # https://whitenoise.readthedocs.io/en/latest/django.html#add-compression-and-caching-support
     "default": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+        "BACKEND": 'cloudinary_storage.storage.MediaCloudinaryStorage'
     },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 
+# Cloudinary Media Storage
+CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+        'API_KEY': os.environ.get("CLOUDINARY_API_KEY"),
+        'API_SECRET': os.environ.get("CLOUDINARY_API_SECRET")
+        }
 # Don't store the original (un-hashed filename) version of static files, to reduce slug size:
 # https://whitenoise.readthedocs.io/en/latest/django.html#WHITENOISE_KEEP_ONLY_HASHED_FILES
 WHITENOISE_KEEP_ONLY_HASHED_FILES = True

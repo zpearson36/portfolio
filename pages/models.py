@@ -1,8 +1,10 @@
+from cloudinary.models import CloudinaryField
 from django.db import models
+
 
 class Project(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to = "images/")
+    image = CloudinaryField('image')
     text = models.TextField()
 
 class MyInfo(models.Model):
@@ -12,5 +14,5 @@ class MyInfo(models.Model):
     linked_in  = models.URLField(max_length=500)
     github     = models.URLField(max_length=500)
     itch_io    = models.URLField(max_length=500)
-    image      = models.ImageField(upload_to="images/")
+    image      = CloudinaryField('image')
     introduction = models.TextField(default="Hello There")
