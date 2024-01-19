@@ -6,6 +6,7 @@ class Project(models.Model):
     name = models.CharField(max_length=100)
     image = CloudinaryField('image')
     text = models.TextField()
+    link = models.URLField(default="#")
 
 class MyInfo(models.Model):
     first_name = models.CharField(max_length=30)
