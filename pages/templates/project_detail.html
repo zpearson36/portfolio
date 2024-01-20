@@ -20,13 +20,13 @@
 	{% if project.detailed_description != "" %}
 	<div class="row m-5">
 		<h3>Background</h3>
-		<p>{{ project.detailed_description }}</p>
+		<p>{{ project.detailed_description|linebreaks }}</p>
 	</div>
 	{% endif %}
 	{% if project.specific_lesson != "" %}
 	<div class="row m-5">
 		<h3>Key Take Aways</h3>
-		<p>{{ project.specific_lesson }}</p>
+		<p>{{ project.specific_lesson|linebreaks }}</p>
 	</div>
 	{% endif %}
 </div>
