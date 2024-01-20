@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from django.views.generic import TemplateView
+from django.views.generic import DetailView, TemplateView
 
 from .models import Project, MyInfo
 
@@ -38,4 +38,8 @@ class Projects(TemplateView):
 
         return context
 
+class ProjectDetail(DetailView):
+    template_name = "project_detail.html"
+    model = Project
+    context_object_name = "project"
 # Create your views here.

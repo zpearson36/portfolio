@@ -4,7 +4,7 @@
 
 <div class="container">
     {% for project in projects %}
-    <a href="{{ project.link }}" class="nav-link">
+    <a href="{% url "project_detail" project.pk %}" class="nav-link">
         <div class="row m-5 border border-5 rounded">
             <div class="col-sm-4 py-2 d-flex align-items-center" style="background:#c9c9c9">
     	        <img class="rounded m-auto d-block" width="300"
@@ -14,7 +14,7 @@
             <div class="col-sm-8 px-5 py-2" style="background:#dfdfdf">
 		    <h1>{{ project.name }}</h1>
                 <p>
-                    {{ project.text }}
+                    {{ project.brief_description }}
                 </p>
             </div>
         </div>

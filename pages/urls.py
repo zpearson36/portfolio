@@ -9,4 +9,5 @@ urlpatterns = [
         path("open_source", views.open_source, name="open_source"),
         path("game_dev", views.game_dev, name="game_dev"),
         path("projects", views.Projects.as_view(), name="projects"),
+        path("project_detail/<int:pk>", views.ProjectDetail.as_view(), name="project_detail"),
         ]
