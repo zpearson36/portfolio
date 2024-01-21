@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Contact Me{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row m-5">
+        <div class="col">
+            <div class="jumbotron">
+                <h1 class="display-4">Contact Me</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row m-5">
+        <div class="col-8">
+            <form>
+                <div class="row">
+                    <div class="col-4 form-group">
+                        <label for="nameInput">Name:</label>
+                        <input class="form-control" type="text" id="nameInput" placeholder="Your Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 form-group">
+                        <label for="emailInput">Name:</label>
+                        <input class="form-control" type="email" id="emailInput" placeholder="email@example.com">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="messageInput">Name:</label>
+                        <textarea class="form-control" id="messageInput" rows=10></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn my-3 emailSubmit">Submit</button>
+            </form>
+        </div>
+        <div class="col-1" style="border-right:1px solid currentcolor; opacity:.3"></div>
+        <div class="col mx-3">
+            <div class="row">
+                <h2>Contact Details</h2>
+            </div>
+            <dl class="row mt-5">
+                <dt class="col-sm-4"></dt>
+                <dd class="col-sm-8 lead">Zachary Pearson</dd>
+
+                <dt class="col-sm-4">Based In</dt>
+                <dd class="col-sm-8 lead">{{ my_info.location }}</dd>
+
+                <dt class="col-sm-4">Email</dt>
+                <dd class="col-sm-8 lead"><a href="{{ my_info.email}}" class="nav-link">{{ my_info.email}}</a></dd>
+
+                <dt class="col-sm-4">LinkedIn</dt>
+                <dd class="col-sm-8 lead"><a href="{{ my_info.linked_in}}" class="nav-link">{{ my_info.linked_in }}</a></dd>
+
+                <dt class="col-sm-4">Itch.io</dt>
+                <dd class="col-sm-8 lead"><a href="{{ my_info.itch_io}}" class="nav-link">{{ my_info.itch_io }}</a></dd>
+
+                <dt class="col-sm-4">Github</dt>
+                <dd class="col-sm-8 lead"><a href="{{ my_info.github}}" class="nav-link">{{ my_info.github }}</a></dd>
+            </dl>
+        </div>
+    </div>
+</div>
+{% endblock %}
