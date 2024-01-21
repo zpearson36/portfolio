@@ -13,6 +13,7 @@ class Project(models.Model):
 class MyInfo(models.Model):
     first_name   = models.CharField(max_length=30)
     last_name    = models.CharField(max_length=30)
+    location     = models.CharField(max_length=100)
     email        = models.EmailField(max_length=128)
     linked_in    = models.URLField(max_length=500)
     github       = models.URLField(max_length=500)

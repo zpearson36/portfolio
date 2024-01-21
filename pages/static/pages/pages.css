@@ -25,4 +25,12 @@
 	filter: brightness(.6);
 }
 
+.emailSubmit {
+    background:#acadac;
+}
+.emailSubmit:hover {
+    background:#acadac;
+    opacity:.5;
+}
+
 
