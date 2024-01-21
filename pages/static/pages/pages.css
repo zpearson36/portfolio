@@ -33,4 +33,6 @@
     opacity:.5;
 }
 
-
+.contactLink:Hover {
+	color:#acadac;
+}
