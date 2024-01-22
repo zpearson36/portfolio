@@ -48,7 +48,7 @@ class ProjectDetail(DetailView):
 class ContactMe(FormView):
     template_name = "contact_me.html"
     form_class = ContactForm
-    success = "contact_me"
+    success_url = "contact_me"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
