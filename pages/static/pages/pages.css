@@ -36,3 +36,13 @@
 .contactLink:Hover {
 	color:#acadac;
 }
+
+.contactMe {
+    background:#acadac;
+    color:#e6e6e6;
+}
+
+.contactMe:hover {
+    background:#979897;
+    color:#4a4a4a;
+}

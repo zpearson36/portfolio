@@ -1,7 +1,6 @@
 {% load pages_context_processors %}
-<div class="container mt-auto">
 	{% get_my_info as my_info %}
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 fixed-bottom" style="background: #c9c9c9">
         <div class="col-md-4 d-flex align-items-center">
           <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
@@ -20,4 +19,3 @@
             <li class="nav-item active"><a class="nav-link px-2 text-muted" href="{% url 'contact_me' %}">Contact me</a></li>
         </ul>
     </footer>
-</div>
