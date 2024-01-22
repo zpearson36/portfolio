@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} {{ project.name }} {% endblock %}
 {% block content %}
+    {% csrf_token %}
 <div class="container">
         <div class="row m-5 border border-5 rounded">
             <a href="{{ project.link }}" class="col-sm-4 py-2 d-flex align-items-center" style="background:#c9c9c9">
