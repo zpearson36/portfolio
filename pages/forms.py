@@ -1,3 +1,5 @@
+import os
+
 from django import forms
 from django.core.mail import send_mail
 from django.core.validators import EmailValidator
@@ -26,7 +28,7 @@ class ContactForm(forms.Form):
         send_mail(
                 "Message from visitor of notabotdev.com",
                 self.cleaned_data['message'],
-                self.cleaned_data['email'],
+                "@".join(["mailgun", os.environ.get('MAILGUN_DOMAIN', '')],
                 [MyInfo.objects.all()[0].email],
                 fail_silently=False
                 )
