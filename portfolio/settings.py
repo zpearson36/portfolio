@@ -106,7 +106,10 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
 
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
