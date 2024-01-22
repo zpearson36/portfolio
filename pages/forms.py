@@ -28,7 +28,7 @@ class ContactForm(forms.Form):
         send_mail(
                 "Message from visitor of notabotdev.com",
                 self.cleaned_data['message'],
-                "@".join(["mailgun", os.environ.get('MAILGUN_DOMAIN', '')]),
+                self.cleaned_data['email'],
                 [MyInfo.objects.all()[0].email],
                 fail_silently=False
                 )
