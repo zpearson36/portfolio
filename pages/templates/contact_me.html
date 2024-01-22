@@ -11,26 +11,17 @@
     </div>
     <div class="row m-5">
         <div class="col-8">
-            <form>
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
                 <div class="row mt-1">
-                    <div class="col-4 form-group">
-                        <label for="nameInput">Name:</label>
-                        <input class="form-control" type="text" id="nameInput" placeholder="Your Name">
+                    <div class="col{% if field.name != "message" %}-4{% endif %} form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
                     </div>
                 </div>
-                <div class="row mt-1">
-                    <div class="col-4 form-group">
-                        <label for="emailInput">E-Mail:</label>
-                        <input class="form-control" type="email" id="emailInput" placeholder="email@example.com">
-                    </div>
-                </div>
-                <div class="row mt-1">
-                    <div class="form-group">
-                        <label for="messageInput">Message:</label>
-                        <textarea class="form-control" id="messageInput" rows=10></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="btn my-3 emailSubmit">Submit</button>
+                {% endfor %}
+                <input type="submit" value="Submit" class="btn my-3 emailSubmit">
             </form>
         </div>
         <div class="col-1" style="border-right:1px solid currentcolor; opacity:.3"></div>
