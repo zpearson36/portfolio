@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for project in projects %}
-{{ project.heading }}
-{% endfor %}
+{% csrf_token %}
+
+<div class="container">
+    <div class="display-1 my-5">Notable Projects at {{ company_name }}</div>
+    {% for project in projects %}
+        <p class="display-5">{{ project.heading }}<p>
+        <p>{{ project.description|linebreaks }}</p>
+    {% empty %}
+        <p class="lead">Nothing</p>
+    {% endfor %}
+</div>
 {% endblock %}
