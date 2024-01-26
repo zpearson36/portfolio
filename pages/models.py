@@ -20,3 +20,14 @@ class MyInfo(models.Model):
     itch_io      = models.URLField(max_length=500)
     image        = CloudinaryField('image')
     introduction = models.TextField(default="Hello There")
+
+class MyWork(models.Model):
+    company    = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date   = models.DateField()
+    title      = models.CharField(max_length=100)
+
+class WorkProject(models.Model):
+    job_foreign_key = models.ForeignKey(MyWork, on_delete=models.CASCADE)
+    heading         = models.CharField(max_length=256)
+    description     = models.TextField(default="")
