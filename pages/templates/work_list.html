@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for work in object_list %}
+    <a href="{% url 'work_projects' work.pk %}" class="nav-link">{{ work.company }}</a>
+{% empty %}
+    <p class="lead">Nothing</p>
+{% endfor %}
+{% endblock %}

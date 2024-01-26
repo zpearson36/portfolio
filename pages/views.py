@@ -1,10 +1,10 @@
 from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
-from django.views.generic import DetailView, FormView, TemplateView
+from django.views.generic import DetailView, FormView, ListView, TemplateView
 
 from .forms import ContactForm
-from .models import Project, MyInfo
+from .models import Project, MyInfo, MyWork, WorkProject 
 
 class AboutMe(TemplateView):
     template_name = "about_me.html"
@@ -14,36 +14,6 @@ class AboutMe(TemplateView):
         context['my_info'] = MyInfo.objects.all()[0]
 
         return context
-
-def selected_works(request):
-    template = loader.get_template("landing_page.html")
-    return HttpResponse(template.render())
-
-def web_dev(request):
-    template = loader.get_template("landing_page.html")
-    return HttpResponse(template.render())
-
-def open_source(request):
-    template = loader.get_template("landing_page.html")
-    return HttpResponse(template.render())
-
-def game_dev(request):
-    template = loader.get_template("landing_page.html")
-    return HttpResponse(template.render())
-
-class Projects(TemplateView):
-    template_name = "project_list.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['projects'] = Project.objects.all()
-
-        return context
-
-class ProjectDetail(DetailView):
-    template_name = "project_detail.html"
-    model = Project
-    context_object_name = "project"
 
 class ContactMe(FormView):
     template_name = "contact_me.html"
@@ -72,5 +42,35 @@ class ContactMe(FormView):
         messages.add_message(self.request, messages.SUCCESS, "Message Sent Successfully")
         return super().form_valid(form)
 
+class Projects(TemplateView):
+    template_name = "project_list.html"
 
-# Create your views here.
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['projects'] = Project.objects.all()
+
+        return context
+
+class ProjectDetail(DetailView):
+    template_name = "project_detail.html"
+    model = Project
+    context_object_name = "project"
+
+class WorkList(ListView):
+    template_name = "work_list.html"
+    model = MyWork
+
+class WorkProjects(ListView):
+    template_name = "work_detail.html"
+    model = WorkProject
+
+    def dispatch(self, request, *args, **kwargs):
+        self.work_pk = kwargs['work_pk']
+
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['projects'] = self.model.objects.filter(job_foreign_key=self.work_pk)
+
+        return context
