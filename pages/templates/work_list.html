@@ -1,9 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for work in object_list %}
-    <a href="{% url 'work_projects' work.pk %}" class="nav-link">{{ work.company }}</a>
-{% empty %}
-    <p class="lead">Nothing</p>
-{% endfor %}
+{% csrf_token %}
+
+<div class="container">
+    {% for work in object_list %}
+    <a href="{% url 'work_projects' work.pk %}" class="nav-link">
+        <div class="row m-5 border border-5 rounded">
+            <div class="col-sm-8 px-5 py-2" style="background:#dfdfdf">
+    	        <h1>{{ work.company }}</h1>
+                <p>
+                {{ work.start_date }}-{{ work.end_date }}
+                </p>
+            </div>
+            <div class="col-sm-4 border border-5 rounded" style="background:#acb5af;">
+                <div class="row m-3">
+                    <p class="display-6">As {{ work.title }}</p>
+                </div>
+                <div class="row mt-5" style="background:#ebd9d1;">
+                    <p class="lead text-end mt-2">Click for notable projects >>></p>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% empty %}
+        <p class="lead">Nothing</p>
+    {% endfor %}
+</div>
 {% endblock %}

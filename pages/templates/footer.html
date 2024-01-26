@@ -13,8 +13,9 @@
           <li class="ms-3"><a class="fa-brands fa-itch-io fa-2xl" href="{{ my_info.itch_io }}"></a></li>
         </ul>
 	<ul class="nav col-md-4 justify-content-end">
-	    <li class="nav-item"><a href="{% url 'index' %}" class="nav-link px-2 text-muted">About Me</a></li>
-	    <li class="nav-item"><a href="{% url 'projects' %}" class="nav-link px-2 text-muted">Projects</a></li>
+	    <li class="nav-item"><a href="{% url 'index' %}" class="nav-link px-2 text-muted"    >About Me</a></li>
+	    <li class="nav-item"><a href="{% url 'work_list' %}" class="nav-link px-2 text-muted">Work History</a></li>
+	    <li class="nav-item"><a href="{% url 'projects' %}" class="nav-link px-2 text-muted" >Projects</a></li>
             <li class="nav-item active"><a class="nav-link px-2 text-muted" href="{% url 'contact_me' %}">Contact me</a></li>
         </ul>
     </footer>
