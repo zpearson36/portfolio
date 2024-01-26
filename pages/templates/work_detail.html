@@ -9,7 +9,7 @@
         <p class="display-5">{{ project.heading }}<p>
         <p>{{ project.description|linebreaks }}</p>
     {% empty %}
-        <p class="lead">Nothing</p>
+        <div class="lead my-5 text-center">Nothing Published Yet</p>
     {% endfor %}
 </div>
 {% endblock %}
