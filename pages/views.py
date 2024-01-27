@@ -60,6 +60,8 @@ class WorkList(ListView):
     template_name = "work_list.html"
     model = MyWork
 
+    ordering = ["start_date"]
+
 class WorkProjects(ListView):
     template_name = "work_detail.html"
     model = WorkProject
