@@ -1,2 +1,2 @@
-web gunicorn portfolio.wsgi
+web: gunicorn portfolio.wsgi
 release: python manage.py migrate --no-input
